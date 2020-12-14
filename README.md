@@ -1,5 +1,6 @@
 # Two-Qubit Gate Decomposition
 **Main Challenge:**
+
 An arbitrary two-qubit gate must be decomposed into some single-qubit gates and CNOT gates to be executed on a quantum computer.
 Write a program to implement the two-qubit gate decomposition.
 
@@ -15,6 +16,11 @@ A sequence of single-qubit gates and CNOT gates.
 
  - Input:  a two-qubit Control-Z (CZ) gate on two qubits q1 and q2
  - Output: Hadamard gate (H) on q2, CNOT on q1 q2, Hadamard gate (H) on q2
+
+
+## Usage
+- `test_gate_decomp(N)`: Test the decomposition, N specifies the number of generated test cases.
+- `gate_decomp(U)`: Return the decomposition of an arbitrary 2-qubit gate $U$.
 
 ## Step 1: Canonical Decomposition
 Kraus and Cirac proposed a decomposition method [1] based on the isomorphism between
@@ -43,7 +49,7 @@ I implemented the optimal decomposition of $U_d$ proposed in [5]. The constructi
 Then we just need to combine the single-qubit gates and the overall decomposition can be described as follows.
 
 ```matlab
-[R_a1, R_b1, R_a2, R_b2, R_b3, R_a4, R_b4] = gate_decomp(U)
+function [R_a1, R_b1, R_a2, R_b2, R_b3, R_a4, R_b4] = gate_decomp(U)
 % This function gives the decompostion of arbitrary 2-qubit gate.
 % Final decompostion result:
 %  =====      ======  =======  ======  ======          =======  ======
